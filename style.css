@@ -1664,82 +1664,101 @@ body {
   color: white;
 }
 
-/* Trial Page Specific Styling */
-.plans-hero {
-  padding-top: 120px;
-  background-color: #1a1a1a;
-  text-align: center;
-}
-
+/* Trial Page Plans Grid */
 .plans-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: -50px; /* Overlap effect */
-  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Base Plan Box Style */
 .plan-card {
-  background: #ffffff;
-  color: #1a1a1a;
-  padding: 40px 30px;
-  border-radius: 15px;
+  background: var(--bg-dark, #121212); /* Dark theme consistency */
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 35px;
+  width: 100%;
+  max-width: 350px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect - Box thoda uthega */
+.plan-card:hover {
+  transform: translateY(-10px);
+  border-color: #ff4d05; /* Glow effect on hover */
+  box-shadow: 0 15px 30px rgba(255, 77, 5, 0.15);
+}
+
+/* Special Box for 12 Months (Popular) */
+.plan-card.popular {
+  border: 2px solid #ff4d05;
+  background: linear-gradient(145deg, #1a1a1a, #000000);
   position: relative;
 }
 
-.plan-card:hover {
-  transform: translateY(-10px);
-}
-
-.plan-card.popular {
-  background: #1a1a1a;
-  color: #ffffff;
-  border: 2px solid #ff4d05; /* Your primary color */
-  transform: scale(1.05);
-}
-
+/* Plan Labels (Beginner, Pro, etc.) */
 .plan-tag {
-  background: #f4f4f4;
-  padding: 5px 15px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: bold;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.popular-tag {
-  background: #ff4d05;
-  color: white;
-}
-
-.plan-price {
-  font-size: 32px;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 14px;
   font-weight: 800;
+  text-transform: uppercase;
+  color: #ff4d05;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Pricing inside the box */
+.plan-price {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #ffffff;
   margin: 15px 0;
 }
 
-.plan-price span {
+.plan-emi {
+  color: #a0a0a0;
   font-size: 14px;
-  font-weight: 400;
-  color: #666;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
+/* Features List inside the box */
 .plan-features {
+  text-align: left;
   list-style: none;
   padding: 0;
-  margin: 30px 0;
-  text-align: left;
+  margin-bottom: 30px;
 }
 
 .plan-features li {
-  margin-bottom: 15px;
+  color: #e0e0e0;
   font-size: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.plan-card.popular .plan-features li {
-  color: #ccc;
+.plan-features li::before {
+  content: "✓";
+  color: #ff4d05;
+  font-weight: bold;
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 768px) {
+  .plan-card {
+    max-width: 100%;
+  }
 }
