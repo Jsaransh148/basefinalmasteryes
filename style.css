@@ -1664,104 +1664,7 @@ body {
   color: white;
 }
 
-/* Trial Page Plans Grid */
-.plans-layout {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
-/* Base Plan Box Style */
-.plan-card {
-  background: var(--bg-dark, #121212); /* Dark theme consistency */
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 35px;
-  width: 100%;
-  max-width: 350px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Hover Effect - Box thoda uthega */
-.plan-card:hover {
-  transform: translateY(-10px);
-  border-color: #ff4d05; /* Glow effect on hover */
-  box-shadow: 0 15px 30px rgba(255, 77, 5, 0.15);
-}
-
-/* Special Box for 12 Months (Popular) */
-.plan-card.popular {
-  border: 2px solid #ff4d05;
-  background: linear-gradient(145deg, #1a1a1a, #000000);
-  position: relative;
-}
-
-/* Plan Labels (Beginner, Pro, etc.) */
-.plan-tag {
-  font-family: 'Catamaran', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #ff4d05;
-  margin-bottom: 10px;
-  display: block;
-}
-
-/* Pricing inside the box */
-.plan-price {
-  font-family: 'Catamaran', sans-serif;
-  font-size: 38px;
-  font-weight: 900;
-  color: #ffffff;
-  margin: 15px 0;
-}
-
-.plan-emi {
-  color: #a0a0a0;
-  font-size: 14px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-/* Features List inside the box */
-.plan-features {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 30px;
-}
-
-.plan-features li {
-  color: #e0e0e0;
-  font-size: 15px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.plan-features li::before {
-  content: "✓";
-  color: #ff4d05;
-  font-weight: bold;
-}
-
-/* Responsive fix for mobile */
-@media (max-width: 768px) {
-  .plan-card {
-    max-width: 100%;
-  }
-}
 
 /* About Us Specific Styles */
 .about-grid {
@@ -1826,4 +1729,130 @@ body {
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; }
   .stats-container { flex-wrap: wrap; }
+}
+
+/* --- TRIAL PAGE / PRICING SECTION CUSTOM CSS --- */
+
+.pricing { 
+  padding-block: 100px 60px; /* Space for header */
+  background-color: #000;
+}
+
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 25px;
+  margin-block-start: 40px;
+}
+
+.pricing-card {
+  background-color: #1c1f23; 
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 380px; 
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Highlighted Box for Best Value */
+.pricing-card.highlighted {
+  border-color: #ff4400; 
+  box-shadow: 0 0 20px rgba(255, 68, 0, 0.15);
+  transform: scale(1.02); /* Thoda bada dikhega baki se */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.duration {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 45px;
+  font-weight: 900;
+  line-height: 0.9;
+  color: #fff;
+}
+
+.duration .unit {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.price-box { text-align: right; }
+
+.price-box del { 
+  color: #666; 
+  font-size: 14px; 
+  display: block; 
+  text-decoration: line-through;
+}
+
+.price { 
+  font-size: 32px; 
+  font-weight: 700; 
+  color: #fff;
+  margin-block: 5px;
+}
+
+.monthly-price { font-size: 12px; color: #888; }
+
+.features-list {
+  list-style: none;
+  margin-bottom: 30px;
+  flex-grow: 1; 
+  padding: 0;
+}
+
+.features-list li {
+  color: #bbb;
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+/* List mein "+" sign ke liye */
+.features-list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: #ff4400; /* Matching BASE orange color */
+  font-weight: bold;
+}
+
+/* Button style from your request */
+.pricing .btn-secondary {
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #ff4400;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.pricing .btn-secondary:hover {
+  background-color: #ff4400;
+  color: #fff;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .pricing-card.highlighted {
+    transform: scale(1); /* Mobile pe zoom hata denge */
+  }
 }
